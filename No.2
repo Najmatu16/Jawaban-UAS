@@ -1,0 +1,29 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Parameter yang diketahui
+A = 0.05  # Amplitudo dalam meter (5 cm)
+T = 10    # Periode dalam detik
+omega = 2 * np.pi / T  # Frekuensi sudut
+
+# Fungsi untuk menghitung posisi benda pada waktu t
+def posisi_benda(t):
+    return A * np.cos(omega * t)
+
+# Waktu dari 0 hingga 50 detik
+waktu = np.linspace(0, 50, 1000)
+
+# Posisi benda pada setiap waktu t
+posisi = posisi_benda(waktu)
+
+# Membuat grafik posisi vs waktu
+plt.figure(figsize=(8, 6))
+plt.plot(waktu, posisi, label='Posisi Benda', color='b')
+plt.title('Gerak Harmonis Sederhana: Posisi vs Waktu')
+plt.xlabel('Waktu (detik)')
+plt.ylabel('Posisi (meter)')
+plt.grid(True)
+plt.axhline(0, color='black',linewidth=0.5)
+plt.axvline(0, color='black',linewidth=0.5)
+plt.legend()
+plt.show()
